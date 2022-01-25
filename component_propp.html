@@ -7,20 +7,36 @@
 </head>
 <body>
     <div id="app">
-        <h1>좋아하는 과일</h1>
+        <h1>좋아하는 과일??????</h1>
         <ol>
-
+            <favorite-fruits v-for='item in aFruits' v-bind:fruits="item" v-bind:key="item.id">
+            </favorite-fruits>
 
         </ol>
     </div>
 </body>
 <script>
+    Vue.component('favorite-fruits',{
+        props:['fruits'],
+        template:`<li>{{fruits.text}}</li>`
+    });
     var app = new Vue({
         el:'#app',
         data :{
-            
+            aFruits[{
+                id:0,
+                text:'사과'
+            },
+            {
+                id:1,
+                text:'오렌지'
+            },
+            {
+                id:2,
+                text:'수박'
+            }
+        ]
         }
-
-    })
+    });
 </script>
 </html>
